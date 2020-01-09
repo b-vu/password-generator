@@ -174,13 +174,23 @@
                 console.log(password);
             }
 
-            //This edits line 199 to show the password after the onclick event runs the generatePassword function
+            //This edits line 209 to show the password after the onclick event runs the generatePassword function
             document.getElementById("password").innerHTML = password;
         }
         else{
             alert("Please type a number between 8-128.");
         }
         console.log(userNumberChar, userSpec, userNumChar, userLower, userUpper);
+        }
+        function copyPassword(id){
+            var copyPass = document.getElementById(id).innerText;
+            var pass = document.createElement("textarea");
+            document.body.appendChild(pass);
+            pass.value = copyPass;
+            pass.select();
+            document.execCommand("copy");
+            document.body.removeChild(pass);
+            console.log(copyPass);
         }
     </script>
 
@@ -201,7 +211,7 @@
 
         <div class="row">
             <a onclick="generatePassword()" class="btn btn-primary btn-lg" href="#" role="button">Generate Password</a>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Copy to Clipboard</a>
+            <a onclick="copyPassword('password')" class="btn btn-primary btn-lg" href="#" role="button">Copy to Clipboard</a>
         </div>
     </div>
 
